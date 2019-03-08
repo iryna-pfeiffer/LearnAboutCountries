@@ -14,6 +14,7 @@ class CountryInfoPresenter {
      private weak var view: CountryInfoViewController!
      private let apiDataService = ApiDataService()
      private var detailedInfo: CountryInfo?
+//     private var mapInitializer = MapInitializer()
      var detailedInfoArray: [(name: String, value: String)] = []
      let formatter = NumberFormatter()
      private var coordAndArea: [Double] = []
@@ -33,8 +34,7 @@ class CountryInfoPresenter {
 
     func loadInfo(for searchParam: String) {
         let delimeter = " "
-        var selectedCountryArray = searchParam.components(separatedBy: delimeter)
-        let searchWord = String(selectedCountryArray[0].lowercased())
+        let searchWord  = searchParam.components(separatedBy: delimeter).first?.lowercased() ?? ""
         
         apiDataService.loadCountryInfo(for: searchWord) { [weak self] (countries) in
             for item in countries {
@@ -58,22 +58,20 @@ class CountryInfoPresenter {
     }
     
 
-    func setCoordinatesAndArea() {
-        coordAndArea.append(detailedInfo?.latlng[0] ?? 48.3794)
-        coordAndArea.append(detailedInfo?.latlng[1] ?? 31.1656)
-        coordAndArea.append(detailedInfo?.area ?? 15000000)
+    private func setCoordinatesAndArea() -> CoordinatesAndArea{
+        return CoordinatesAndArea(latitude: detailedInfo?.latlng[0] ?? 48.13,
+                              longitude: detailedInfo?.latlng[1] ?? 11.22,
+                              area: detailedInfo?.area ?? 1500000)
     }
     
     func showMap() {
         guard let vc = view?.storyboard?.instantiateViewController(withIdentifier: "MapVC") as? MapViewController
             else { return }
-        setCoordinatesAndArea()
-        let mapPresenter = MapPresenter(latitude: coordAndArea[0], longitude: coordAndArea[1], area: coordAndArea[2])
+        let mapPresenter = MapPresenter(setCoordinatesAndArea())
         vc.presenter = mapPresenter
         view?.showMapViewController(vc: vc)
     }
 }
-
 
 
 //MARK: - Saving data from Model Structure to an Array
@@ -143,4 +141,7 @@ extension CountryInfoPresenter {
         }
     }
     
+    func getFlagURL() -> String {
+        return detailedInfo?.flag ?? " "
+    }
 }

@@ -12,6 +12,12 @@ struct Country: Decodable {
     let name: String
 }
 
+struct CoordinatesAndArea {
+    var latitude: Double
+    var longitude: Double
+    var area: Double
+}
+
 struct CountryInfo: Decodable {
     let name: String
     let topLevelDomain: [String]?

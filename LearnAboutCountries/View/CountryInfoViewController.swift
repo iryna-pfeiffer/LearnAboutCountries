@@ -47,7 +47,7 @@ class CountryInfoViewController: UITableViewController {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "flagCell", for: indexPath) as! FlagCell
-            
+            cell.showSVG(url: presenter.getFlagURL())
             
             return cell
         case 2...18:

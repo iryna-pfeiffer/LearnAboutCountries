@@ -15,10 +15,10 @@ class MapPresenter {
     private var lon: Double = 0
     private var area: Double = 0
     
-    init(latitude: Double, longitude: Double, area: Double) {
-        self.lat = latitude
-        self.lon = longitude
-        self.area = area
+    init(_ data: CoordinatesAndArea) {
+        self.lat = data.latitude
+        self.lon = data.longitude
+        self.area = data.area
     }
     
     func viewIsLoaded(_ view: MapViewController) {
@@ -27,7 +27,7 @@ class MapPresenter {
         view.zoomIntoMap(with: lat, lon: lon, scaleValue: scaleValue)
     }
     
-    func getScaleValue (for value: Double) -> Int {
+    private     func getScaleValue (for value: Double) -> Int {
         var scaleValue = 0
         switch value {
             case 1...5000:

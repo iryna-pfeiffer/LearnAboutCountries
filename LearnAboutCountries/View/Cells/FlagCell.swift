@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import WebKit
 
 class FlagCell: UITableViewCell {
 
-    @IBOutlet weak var flagImageView: UIImageView!
+
+    @IBOutlet weak var flagImage: WKWebView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,4 +24,11 @@ class FlagCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func showSVG(url: String){
+        guard let url = URL(string: url) else {return}
+        let request = URLRequest(url: url) 
+              flagImage.load(request)
+        
+
+    }
 }
