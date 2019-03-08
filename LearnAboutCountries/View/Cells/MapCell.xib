@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="mapCell" id="Yza-bJ-CZt" customClass="MapCell" customModule="LearnAboutCountries" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yza-bJ-CZt" id="tH1-zq-osI">
+                <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position in World Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrx-9T-tiZ">
+                        <rect key="frame" x="15" y="15" width="306" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wrx-9T-tiZ" firstAttribute="leading" secondItem="tH1-zq-osI" secondAttribute="leading" constant="15" id="60c-R6-gg3"/>
+                    <constraint firstAttribute="trailing" secondItem="wrx-9T-tiZ" secondAttribute="trailing" constant="20" id="6Wl-xE-GF4"/>
+                    <constraint firstAttribute="bottom" secondItem="wrx-9T-tiZ" secondAttribute="bottom" constant="15" id="Jaf-DW-5b9"/>
+                    <constraint firstItem="wrx-9T-tiZ" firstAttribute="top" secondItem="tH1-zq-osI" secondAttribute="top" constant="15" id="fOK-wz-Y1j"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-271" y="-63"/>
+        </tableViewCell>
+    </objects>
+</document>
